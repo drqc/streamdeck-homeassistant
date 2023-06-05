@@ -93,14 +93,28 @@ export default {
         const timeout = setTimeout(buttonLongPress, 300, context);
         this.buttonLongpressTimeouts.set(context, timeout);
       });
-      this.$SD.on(
-        ("DialRotate",
-        (message) => {
-          let context = message.context;
-          console.log("DialRotate", message);
-          console.log("DialRotate", context);
-        })
-      );
+
+      //DIAL ROTATE SECTION START
+
+      this.$SD.on("dialRotate", (message) => {
+        let context = message.context;
+        console.log("dialRotate", message);
+        if (message.payload.ticks > 0) {
+          //HACK: This invokes the short press on positive ticks
+          callService(
+            context,
+            message.payload.settings.button.serviceShortPress
+          );
+        } else {
+          //HACK: This invokes the long press on negative ticks.
+          //Ideally it should have it's own configuration UI and service call
+          callService(
+            context,
+            message.payload.settings.button.serviceLongPress
+          );
+        }
+      });
+
       this.$SD.on("keyUp", (message) => {
         let context = message.context;
 
