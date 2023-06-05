@@ -11,10 +11,22 @@
           "FontSize": "9"
         }
       ],
-      "SupportedInMultiActions": true,
-      "UUID": "de.perdoctus.streamdeck.homeassistant.entity"
+      "Controllers": [
+        "Keypad",
+        "Encoder"
+      ],
+      "Encoder": {
+        "StackColor": "#AABBCC",
+        "TriggerDescription": {
+          "Rotate": "Describe the rotation",
+          "Push": "Describe the encoder push",
+          "Touch": "Describe the touch",
+          "LongTouch": "Describe the long touch"
+        }
+      },
+      "SupportedInMultiActions": false,
+      "UUID": "com.dq.streamdeck.homeassistant.entity"
     },
-
     {
       "Icon": "images/actionImage",
       "Name": "Entity (custom icons)",
@@ -32,31 +44,30 @@
         }
       ],
       "SupportedInMultiActions": true,
-      "UUID": "de.perdoctus.streamdeck.homeassistant.dual-state-entity"
+      "UUID": "com.dq.streamdeck.homeassistant.dual-state-entity"
     }
   ],
-  "Category": "Home Assistant",
+  "Category": "Home Assistant 2",
   "CategoryIcon": "images/category",
   "SDKVersion": 2,
   "Author": "Christoph Giesche",
   "CodePath": "plugin.html",
   "Description": "Control your Home Assistant entities with stream deck.",
-  "Name": "Home Assistant",
+  "Name": "Home Assistant 2",
   "Icon": "images/plugin/plugin",
   "URL": "https://github.com/cgiesche/streamdeck-homeassistant",
-  "Version": "100.2.1",
+  "Version": "100.2.3",
   "OS": [
     {
       "Platform": "mac",
-      "MinimumVersion" : "10.11"
+      "MinimumVersion": "10.11"
     },
     {
       "Platform": "windows",
-      "MinimumVersion" : "10"
+      "MinimumVersion": "10"
     }
   ],
-  "Software":
-  {
-    "MinimumVersion" : "4.1"
+  "Software": {
+    "MinimumVersion": "4.1"
   }
 }
